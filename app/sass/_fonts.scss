@@ -1,0 +1,32 @@
+@import "compass/css3/font-face";
+$SourceSansProPath: "SourceSansPro-";
+$SourceSansProFamilies: (
+	'Regular',
+	'SemiboldItalic',
+	'Bold',
+	'BoldItalic',
+	'Black',
+	'BlackItalic',
+	'ExtraLight',
+	'ExtraLightItalic',
+	'Light',
+	'LightItalic',
+	'Italic',
+	'Semibold'
+);
+
+@each $family in $SourceSansProFamilies {
+	@include font-face(
+		"SourceSansPro#{$family}",
+		font-files(
+			"#{$SourceSansProPath}#{$family}-webfont.woff", woff,
+			"#{$SourceSansProPath}#{$family}-webfont.ttf", truetype,
+			"#{$SourceSansProPath}#{$family}-webfont.svg#SourceSansPro#{$family}", svg
+		),
+		"#{$SourceSansProPath}#{$family}-webfont.eot",
+		normal,normal
+	);
+	.font-#{$family} {
+		font-family: "SourceSansPro#{$family}", Sans;
+	}
+}

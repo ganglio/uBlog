@@ -1,0 +1,55 @@
+#latest {
+	.platform-wrapper {
+		display: none;
+	}
+	tbody {
+		tr {
+			ul {
+				list-style: none;
+				background-color: #ffffff;
+				margin: 0;
+				li {
+					height: 30px;
+					a {
+						margin: 6px 0;
+						&.btn {
+							margin: 4px 0;
+						}
+					}
+					&:nth-child(odd) {
+						background-color: #F9F9F9;
+					}
+				}
+			}
+			td {
+				vertical-align: middle;
+				&.unpadded {
+					padding: 0;
+				}
+			}
+			&:first-child td.handle:first-child:after {
+				content: "Hero";
+			};
+			&:nth-child(N+2) td.handle:first-child:after {
+				content: "Feat";
+			}
+			&:nth-child(N+6) td.handle:first-child:after {
+				content: "More";
+			}
+		}
+	}
+	.label {
+		&.published {
+			@extend .label-success;
+			.icon {
+				@extend .icon-ok-sign;
+			}
+		}
+		&.unpublished {
+			@extend .label-warning;
+			.icon {
+				@extend .icon-info-sign;
+			}
+		}
+	}
+}

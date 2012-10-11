@@ -1,0 +1,17 @@
+{% extends 'admin.layout.html.twig' %}
+
+{% block scripts %}
+	{{ parent() }}
+	<script type="text/javascript" src="/js/admin.js"></script>
+	<script type="text/javascript" src="/js/jquery-ui-1.8.23.custom.min.js"></script>
+{% endblock %}
+
+{% block navbar %}
+	{% include 'admin.navbar.html.twig' %}
+{% endblock %}
+
+{% block content %}
+	<div class="row">
+		{{ render("/widgets/latest?" ~ query) }}
+	</div>
+{% endblock %}

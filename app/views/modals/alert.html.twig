@@ -1,0 +1,8 @@
+{% extends 'modals/modal.html.twig' %}
+
+{% block content %}
+	{{ message }}
+	<form method="post" action="{{ action }}"></form>
+{% endblock %}
+
+{% block value_widget %}{{ value }}{% endblock %}

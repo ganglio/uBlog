@@ -1,0 +1,28 @@
+{
+	"name": "uBlog",
+	"authors": [
+		{
+			"name": "Roberto Torella",
+			"email": "roberto.torella@gmail.com"
+		}
+	],
+	"autoload": {
+		"psr-0": {
+			"uBlog" : "vendor/ganglio/uBlog/src/"
+		}
+	},
+	"minimum-stability": "dev",
+	"require": {
+		"silex/silex": "1.0.*",
+		"twig/twig": "1.9.*",
+		"symfony/twig-bridge": "2.1.*",
+		"symfony/translation": "2.1.*",
+		"symfony/config": "2.1.*",
+		"symfony/yaml": "2.1.*",
+		"symfony/validator": "2.1.*",
+		"symfony/form": "2.1.*",
+		"doctrine/orm": "2.3.*",
+		"igorw/config-service-provider": "dev-master",
+		"misd/twig-markdowner": "1.0.*"
+	}
+}

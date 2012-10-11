@@ -1,0 +1,15 @@
+db.options:
+    driver: 'pdo_mysql'
+    host: '<HOST>'
+    dbname: '<DBNAME>'
+    user: '<USER>'
+    password: '<PASSWORD>'
+db.orm.class_path: '/vendor/doctrine2-orm/lib'
+db.orm.proxies_dir: '/cache/doctrine/proxy'
+db.orm.proxies_namespace: 'DoctrineProxy'
+db.orm.auto_generate_proxies: true
+db.orm.entities:
+  -
+    type: 'annotation'
+    path: '/../vendor/ganglio/uBlog/src'
+    namespace: 'uBlog'

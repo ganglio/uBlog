@@ -1,0 +1,105 @@
+{% extends 'admin.layout.html.twig' %}
+
+{% form_theme form _self %}
+
+{% block scripts %}
+	{{ parent() }}
+	<script type="text/javascript" src="/js/jquery-ui-1.8.23.custom.min.js"></script>
+	<script type="text/javascript" src="/js/edit.js"></script>
+{% endblock %}
+
+{% block navbar %}
+	{% include 'admin.navbar.html.twig' %}
+{% endblock %}
+
+{% block content %}
+	<form method="post" novalidate {{ form_enctype(form) }}>
+		<legend>{{ title }}</legend>
+
+		{{ form_errors(form) }}
+
+		{{ form_row(form.title) }}
+		{{ form_row(form.language) }}
+		{{ form_row(form.content) }}
+
+		{{ form_label(form.media) }}
+		<script id="media_prototype" type="text/html-prototype">
+			{{ form_row(form.media.get('prototype')) }}
+		</script>
+		<table class="media table table-striped table-bordered table-hover" id="form_media">
+			<thead>
+				<tr>
+					<th></th>
+					<th>Preview</th>
+					<th>Type</th>
+					<th>Upload</th>
+					<th>Delete</th>
+				</tr>
+			</thead>
+			<tbody class="sortable">
+				{% for element in form.media %}
+					{{ form_row(element) }}
+				{% endfor %}
+			</tbody>
+			<tfoot>
+				<tr>
+					<td colspan="2">
+						<button class="btn" id="add_media">Add media</button>
+					</td>
+					<td colspan="3">
+						<span class="alert">The data have been modified. Please save to make the changes permanent</span>
+					</td>
+				</tr>
+			</tfoot>
+		</table>
+
+		{{ form_rest(form) }}
+
+		<div class="form-actions">
+			{% if submit is defined %}
+				<button type="submit" class="btn btn-primary">Save changes</button>
+			{% endif %}
+			<button type="button" class="btn" id="back">Back</button>
+		</div>
+	</form>
+{% endblock %}
+
+{% block media_row %}
+	{% spaceless %}
+			{{ form_widget(form) }}
+	{% endspaceless %}
+{% endblock %}
+
+{% block media_widget %}
+	{% spaceless %}
+		<tr>
+			<td class="handle">
+				<i class="icon-move"></i>
+				{{ form_widget(form.id) }}
+				{{ form_widget(form.weight) }}
+			</td>
+			<td class="image"><img src='{{ form_widget(form.uri) }}' class="preview" /></td>
+			<td>
+				{{ form_row(form.type) }}
+			</td>
+			<td>{{ form_row(form.new_uri) }}</td>
+			<td class="delete"><i class="icon-trash"></i></td>
+		</tr>
+	{% endspaceless %}
+{% endblock %}
+
+{% block value_widget %}{{ value }}{% endblock %}
+
+{% block form_errors %}
+{% spaceless %}
+	{% if errors|length > 0 %}
+		{% for error in errors %}
+			<div class="alert alert-error">{{
+				error.messagePluralization is null
+					? error.messageTemplate|trans(error.messageParameters, 'validators')
+					: error.messageTemplate|transchoice(error.messagePluralization, error.messageParameters, 'validators')
+			}}</div>
+		{% endfor %}
+	{% endif %}
+{% endspaceless %}
+{% endblock form_errors %}

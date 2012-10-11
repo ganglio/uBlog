@@ -1,0 +1,32 @@
+<!DOCTYPE HTML>
+<html lang="en-GB">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width; initial-scale=1.0; maximum-scale=1.0;"/>
+
+	{% block stylesheets %}
+		<link rel="stylesheet" type="text/css" href="/css/global.css">
+	{% endblock %}
+
+	<title>{{ 'blog.title' | trans }}</title>
+</head>
+<body>
+	{% block admin_navbar %}
+	{% endblock %}
+	<div class="page">
+		<header>{{ 'blog.title' | trans }}</header>
+		<section class="content">
+			{% block content %}
+			{% endblock %}
+		</section>
+		<section class="asides">
+			{% block aside %}
+			{% endblock %}
+		</section>
+		<footer>{{ 'blog.copyright' | trans | raw }}</footer>
+	</div>
+	{% block javascript %}
+		<script type="text/javascript" src='/js/jquery-1.8.1.min.js'></script>
+	{% endblock %}
+</body>
+</html>

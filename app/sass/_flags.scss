@@ -1,0 +1,18 @@
+@import "../images/flags/*.png";
+@include all-flags-sprites;
+
+.flag {
+	width: 27px;
+	height: 18px;
+	display: inline-block;
+	text-indent: -9999px;
+	&:hover {
+		font-weight: normal;
+	}
+	&.light {
+		opacity: 0.5;
+		&:hover {
+			opacity: 1.0;
+		}
+	}
+}

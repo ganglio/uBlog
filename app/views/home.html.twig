@@ -1,0 +1,33 @@
+{% extends 'layout.html.twig' %}
+
+{% block javascript %}
+	{{ parent() }}
+	<script type="text/javascript" src='/js/bootstrap-dropdown.js'></script>
+{% endblock %}
+
+{% block admin_navbar %}
+	{% if user %}
+		<div class="navbar">
+			<div class="navbar-inner navbar">
+				<div class="container">
+					<a class="btn btn-navbar" data-toggle="collapse" data-target=".nav-collapse">
+						<span class="icon-bar"></span>
+						<span class="icon-bar"></span>
+						<span class="icon-bar"></span>
+					</a>
+					<a class="brand" href="/admin">{{ 'blog.title' | trans | raw }}</a>
+					{% include 'admin.navbar.html.twig' %}
+				</div>
+			</div>
+		</div>
+	{% endif %}
+{% endblock %}
+
+{% block content %}
+	{% for node in nodes %}
+		<article>
+			<h1><a href='/{{ locale }}/node/{{ node.getSlug() }}'>{{ node.getTitle() }}</a></h1>
+			{{ node.getContent() | markdown }}
+		</article>
+	{% endfor %}
+{% endblock %}

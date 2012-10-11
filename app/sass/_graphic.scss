@@ -1,0 +1,12 @@
+body {
+	background-image: url('/images/px_by_Gre3g.png');
+}
+
+.content, aside {
+	background-color: rgba(0,0,0,0.1);
+	@include background-clip(content-box);
+}
+
+footer {
+	background-color: rgba(0,0,0,0.1);
+}

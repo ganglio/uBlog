@@ -1,0 +1,9 @@
+vendor/*
+!vendor/ganglio
+app/css/*
+app/.sass-cache
+app/cache
+app/public
+composer.lock
+.htaccess
+app/config.yml

@@ -1,0 +1,17 @@
+<div class="nav-collapse collapse">
+	<ul class="nav pull-right">
+		{% if is_home is defined %}
+			<li><a href="/admin"><i class="icon-cog icon-black"></i> Admin</a></li>
+		{% else %}
+			<li><a href="/"><i class="icon-home icon-black"></i> Home</a></li>
+		{% endif %}
+		<li><a href="/admin/node/add" ><i class="icon-plus icon-black"></i> Add</a></li>
+		<li class="dropdown">
+			<a href="#" class="dropdown-toggle" data-toggle="dropdown"><i class="icon-user icon-black"></i> {{ user.email }} <b class="caret"></b></a>
+			<ul class="dropdown-menu">
+				<li><a href="/admin/logout{% if is_home is defined %}?fromhome{% endif %}">Sign out</a></li>
+			</ul>
+		</li>
+	</ul>
+</div>
+<div class="modal hide fade in" id="modal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true" data-remote="true"></div>

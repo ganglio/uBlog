@@ -1,0 +1,52 @@
+{# Check here for more: https://github.com/symfony/symfony/blob/master/src/Symfony/Bridge/Twig/Resources/views/Form/form_div_layout.html.twig #}
+
+{% block form_row %}
+{% spaceless %}
+	<div class="control-group">
+		{{ form_label(form) }}
+		{{ form_errors(form) }}
+		<div class="controls">
+			{{ form_widget(form) }}
+		</div>
+	</div>
+{% endspaceless %}
+{% endblock form_row %}
+
+{% block checkbox_widget %}
+{% spaceless %}
+	<label class="checkbox">
+		<input type="checkbox" {{ block('widget_attributes') }}{% if value is defined %} value="{{ value }}"{% endif %}{% if checked %} checked="checked"{% endif %} /> {{ label }}
+	</label>
+{% endspaceless %}
+{% endblock checkbox_widget %}
+
+{% block form_label %}
+{% spaceless %}
+	{% if not compound %}
+		{% set label_attr = label_attr|merge({'for': id}) %}
+	{% endif %}
+	{% if required %}
+		{% set label_attr = label_attr|merge({'class': (label_attr.class|default('') ~ ' required')|trim}) %}
+	{% endif %}
+	{% if label is empty %}
+		{% set label = name|humanize %}
+	{% endif %}
+	{% if block_prefixes[2] != 'checkbox' %}
+		<label{% for attrname, attrvalue in label_attr %} {{ attrname }}="{{ attrvalue }}"{% endfor %}>{{ label|trans({}, translation_domain) }}</label>
+	{% endif %}
+{% endspaceless %}
+{% endblock form_label %}
+
+{% block form_errors %}
+{% spaceless %}
+	{% if errors|length > 0 %}
+		{% for error in errors %}
+			<div class="alert alert-error">{{
+				error.messagePluralization is null
+				? error.messageTemplate|trans(error.messageParameters, 'validators')
+				: error.messageTemplate|transchoice(error.messagePluralization, error.messageParameters, 'validators')
+			}}</div>
+		{% endfor %}
+	{% endif %}
+{% endspaceless %}
+{% endblock form_errors %}

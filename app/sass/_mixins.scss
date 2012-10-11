@@ -1,0 +1,36 @@
+@mixin stripes($color, $darken:3%,$pixelratio:1) {
+	@include background-image(linear-gradient(left,$color 0px,$color 2px * $pixelratio,darken($color,$darken) 2px * $pixelratio,darken($color,$darken) 7px * $pixelratio));
+	@include background-size(7px * $pixelratio 20px);
+}
+
+// Using em for media queries 1em=16px
+$break-small: 640px;
+$break-large: 1140px;
+$debug: FALSE;
+
+@mixin respond-to($media) {
+	@if $media == handhelds {
+		@media all and (max-width: $break-small) {
+			@if $debug == TRUE {
+				html, body {background-color: #ff0000;}
+			}
+			@content;
+		}
+	}
+	@else if $media == medium-screens {
+		@media all and (min-width: $break-small) and (max-width: $break-large) {
+			@if $debug == TRUE {
+				html, body {background-color: #0000ff;}
+			}
+			@content;
+		}
+	}
+	@else if $media == wide-screens {
+		@media all and (min-width: $break-large) {
+			@if $debug == TRUE {
+				html, body {background-color: #ff0000;}
+			}
+			@content;
+		}
+	}
+}

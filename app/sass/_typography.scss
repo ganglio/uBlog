@@ -1,0 +1,84 @@
+body {
+	font-family: 'Source Code Pro', sans-serif;
+	color: #ffffff;
+}
+
+a {
+	color: #ffffff;
+	text-decoration: none;
+}
+
+.page {
+	margin: 0 auto;
+}
+
+header {
+	font-size: 3em;
+	height: 100px;
+	line-height: 100px;
+	text-align: center;
+}
+
+.content {
+	font-size: 1.5em;
+	article {
+		margin-bottom: 3 * $zen-gutter-width;
+		padding: $zen-gutter-width;
+		h1 {
+			font-size: 1.2em;
+			margin-bottom: $zen-gutter-width;
+			margin-left: $zen-gutter-width;
+			position: relative;
+			&:hover {
+				&:before {
+					display: inline-block;
+					content: "¶";
+					color: #888888;
+					font-size: 0.7em;
+					width: 0.7em;
+					font-family: sans-serif;
+					margin-left: -0.7em;
+				}
+			}
+		}
+		figure {
+			margin: $zen-gutter-width 0;
+			max-width: 100%;
+			text-align: center;
+			img {
+				max-width: 80%;
+			}
+			figcaption {
+				font-size: 0.75em;
+			}
+		}
+		p {
+			color: #c8c8c8;
+			margin: 0.5em 0;
+			em {
+				color: #ffffff;
+			}
+		}
+		ul {
+			list-style: square inside;
+		}
+		code {
+			padding-left: 1em;
+			font-family: monospace;
+		}
+		blockquote {
+			padding-left: 1em;
+		}
+	}
+}
+
+.asides {
+	font-size: 1.25em;
+	text-align: right;
+}
+
+footer {
+	padding: 2 * $zen-gutter-width 0;
+	margin: $zen-gutter-width $zen-gutter-width / 2;
+	text-align: center;
+}

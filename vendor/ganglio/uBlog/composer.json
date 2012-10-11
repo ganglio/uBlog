@@ -1,0 +1,17 @@
+{
+    "name": "ganglio/uBlog",
+    "description": "Some handy tools for the microblog.",
+    "keywords": ["ganglio","uBlog"],
+    "authors": [
+        {
+            "name": "Roberto Torella",
+            "email": "roberto.torella@gmail.com"
+        },
+    ],
+    "require": {
+        "silex/silex": "1.0.*"
+    },
+    "autoload": {
+        "psr-0": { "uBlog": "src" }
+    }
+}

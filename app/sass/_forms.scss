@@ -1,0 +1,81 @@
+.date {
+	div {
+		line-height: 25px;
+		display: inline-block;
+		&:first-child:before {
+			content:"Date";
+			line-height: 25px;
+			height: 25px;
+			display: inline-block;
+		}
+		&:last-child:before {
+			content: "Time ";
+			margin-left: 5px;
+			line-height: 25px;
+			height: 25px;
+			display: inline-block;
+		}
+		select {
+			width: auto;
+			height: 25px;
+		}
+	}
+}
+
+.alert {
+	strong {
+		text-transform: capitalize;
+		&:after {
+			content: ":";
+		}
+	}
+}
+
+input[type=text],
+textarea {
+	width: 100%;
+}
+
+.media {
+	label {
+		display: none;
+	}
+	.delete,
+	.image {
+		text-align: center;
+		i {
+			cursor: pointer;
+		}
+	}
+	.handle {
+		text-align: center;
+		i {
+			cursor: move;
+		}
+	}
+	.preview {
+		width: auto;
+		height: 60px;
+	}
+	tbody {
+		tr {
+			height: 70px;
+		}
+	}
+	td {
+		vertical-align: middle;
+	}
+	tfoot {
+		td {
+			text-align: center;
+			span {
+				display: none;
+			}
+		}
+	}
+	&.modified {
+		tfoot {
+			span {display:inline;}
+		}
+	}
+}
